@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.TestSelectContract.Presenter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="@dimen/test_select_elevation">
+
+                    <LinearLayout
+                        style="@style/TestSelectLayoutStyle"
+                        android:onClick="@{()->presenter.onClickGoMajorTest()}">
+
+                        <com.rcpt.widget.RoundImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/test_select_image_height"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/bg_test_major"
+                            app:imageType="round" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:paddingLeft="10dp"
+                            android:text="专业知识测试"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:paddingLeft="10dp"
+                            android:text="全面和符合要求的测试"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="@dimen/test_select_elevation">
+
+                    <LinearLayout
+                        style="@style/TestSelectLayoutStyle"
+                        android:onClick="@{()->presenter.onClickGoProfessionTest()}">
+
+                        <com.rcpt.widget.RoundImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/test_select_image_height"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/bg_test_profession"
+                            app:imageType="round" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:paddingLeft="10dp"
+                            android:text="职业倾向测试"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:paddingLeft="10dp"
+                            android:text="心理特征和行为测试"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="@dimen/test_select_elevation">
+
+                    <LinearLayout
+                        style="@style/TestSelectLayoutStyle"
+                        android:onClick="@{()->presenter.onClickGoAbilityTest()}">
+
+                        <com.rcpt.widget.RoundImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/test_select_image_height"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/bg_test_ability"
+                            app:imageType="round" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:paddingLeft="10dp"
+                            android:text="能力测试体系"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:paddingLeft="10dp"
+                            android:text="工作胜任的能力强弱"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+</layout>
+

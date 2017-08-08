@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="45dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:text="\u3000\u3000为了进一步提高企业服务质量、丰富企业服务内容、提高业务开展的便利化程度，济南市服务外包协全资出资成立了济南德盈商务服务有限公司，公司重点依托济南市服务外包人才公共服务平台和创业创新公共服务平台有关职能，为济南市服务外包企业开展相关服务。"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="16sp" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="Copyright @2017\n\n济南德盈商务服务有限公司" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/me_menu_group_one">
+
+        <item
+            android:id="@+id/me_menu_item_news"
+            android:icon="@drawable/ic_vector_me_news"
+            android:title="企业新闻" />
+        <item
+            android:id="@+id/me_menu_item_recruit"
+            android:icon="@drawable/ic_vector_me_recruit"
+            android:title="招聘管理" />
+        <item
+            android:id="@+id/me_menu_item_favorites"
+            android:icon="@drawable/ic_vector_me_favorites"
+            android:title="收藏夹" />
+    </group>
+    <group android:id="@+id/me_menu_group_two">
+        <item
+            android:id="@+id/me_menu_item_bid_record"
+            android:icon="@drawable/ic_vector_bid_record"
+            android:title="竞标管理" />
+        <item
+            android:id="@+id/me_menu_item_notify"
+            android:icon="@drawable/ic_vector_notify"
+            android:title="我的消息" />
+    </group>
+    <group android:id="@+id/me_menu_group_three">
+        <item
+            android:id="@+id/me_menu_item_user_info"
+            android:icon="@drawable/ic_vector_me_user_info"
+            android:title="帐号信息" />
+        <item
+            android:id="@+id/me_menu_item_exit"
+            android:icon="@drawable/ic_vector_me_exit"
+            android:title="退出" />
+    </group>
+</menu>

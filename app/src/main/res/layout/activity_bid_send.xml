@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="bean"
+            type="com.rcpt.bean.BidContactsBean"/>
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.BidSendContract.Presenter" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            android:divider="@drawable/divider_light_line"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:ems="5"
+                    android:text="联系人："
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/edit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请填写联系人"
+                    android:maxLength="50"
+                    android:text="@{bean.name}"
+                    android:padding="13dp"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:ems="5"
+                    android:text="联系电话："
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/edit_tel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{bean.phone}"
+                    android:background="@null"
+                    android:hint="请填写联系电话"
+                    android:inputType="phone"
+                    android:maxLength="50"
+                    android:padding="13dp"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:ems="5"
+                    android:text="E-mail："
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/edit_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请填写邮箱"
+                    android:inputType="textEmailAddress"
+                    android:padding="13dp"
+                    android:text="@{bean.email}"
+                    android:maxLength="50"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:ems="5"
+                    android:text="竞标方案："
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/edit_bid_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="left"
+                    android:hint="竞标方案"
+                    android:lines="5"
+                    android:padding="13dp"
+                    android:maxLength="500"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            style="@style/big_button"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_blue_btn"
+            android:onClick="@{()->presenter.onClickSendBid()}"
+            android:text="确认投标" />
+    </LinearLayout>
+
+</layout>

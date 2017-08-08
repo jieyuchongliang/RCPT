@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/person_menu_group_basic">
+        <item
+            android:id="@+id/person_menu_item_avatar"
+            android:enabled="false"
+            android:title="头像"
+            android:titleCondensed="userPicture" />
+        <item
+            android:id="@+id/person_menu_item_name"
+            android:title="名字"
+            android:enabled="false"
+            android:titleCondensed="name" />
+        <item
+            android:id="@+id/person_menu_item_sex"
+            android:enabled="false"
+            android:title="性别"
+            android:titleCondensed="sex" />
+        <item
+            android:id="@+id/person_menu_item_birthday"
+            android:enabled="false"
+            android:title="出生日期"
+            android:titleCondensed="birthDate" />
+        <item
+            android:id="@+id/person_menu_item_marital_status"
+            android:enabled="false"
+            android:title="婚姻状态"
+            android:titleCondensed="maritalStatus" />
+    </group>
+    <group android:id="@+id/person_menu_group_contact">
+        <item
+            android:id="@+id/person_menu_item_phone"
+            android:enabled="false"
+            android:title="联系电话"
+            android:titleCondensed="contactInfo" />
+        <item
+            android:id="@+id/person_menu_item_emil"
+            android:enabled="false"
+            android:title="电子邮箱"
+            android:titleCondensed="mail" />
+    </group>
+    <group android:id="@+id/person_menu_group_add">
+        <item
+            android:id="@+id/person_menu_item_job_day"
+            android:enabled="false"
+            android:title="参加工作日期"
+            android:titleCondensed="workDate" />
+        <item
+            android:id="@+id/person_menu_item_overseas"
+            android:enabled="false"
+            android:title="海外工作经历"
+            android:titleCondensed="overseasWork" />
+        <item android:id="@+id/person_menu_item_education"
+            android:enabled="false"
+            android:checkable="true"
+            android:title="学历/学位"
+            android:titleCondensed="educationVal"/>
+    </group>
+</menu>

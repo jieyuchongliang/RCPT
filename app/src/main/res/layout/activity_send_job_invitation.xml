@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.SendJobInvitationContract.Presenter" />
+
+        <variable
+            name="bean"
+            type="com.rcpt.bean.CompanyRecruitListBean.RecruitlistBean" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorLightGray"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="45dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/white"
+            android:divider="@drawable/divider_light_line"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="13dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="职位名称："
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@{bean.positionName}"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:text="面试开始时间："
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->presenter.onClickShowStartTimeDialog(tvStart)}"
+                    android:padding="13dp"
+                    android:text="请选择开始时间"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="面试结束时间："
+                    android:layout_marginLeft="13dp"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(v)->presenter.onClickShowEndTimeDialog(tvEnd)}"
+                    android:padding="13dp"
+                    android:text="请选择结束时间"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="13dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="备注信息："
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/edit_remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:gravity="left"
+                    android:hint="请填写备注信息"
+                    android:lines="5"
+                    android:maxLines="5"
+                    android:padding="8dp"
+                    android:textColorHint="@color/colorDarkGray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            style="@style/big_button"
+            android:background="@drawable/bg_blue_btn"
+            android:onClick="@{()->presenter.onClickSendJobInvitation()}"
+            android:text="发送邀请" />
+
+
+    </LinearLayout>
+
+</layout>
+

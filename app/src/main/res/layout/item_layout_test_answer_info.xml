@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="imageUrl"
+            type="String" />
+
+        <variable
+            name="answerBean"
+            type="com.rcpt.bean.TestQuestionInfoBean.ContentBean.AppChoiceListBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text='@{answerBean.key+@string/caesura_sign+answerBean.value}'
+                android:textColor="@{answerBean.select ? @color/colorBlue:@color/colorDarkGray}" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_vector_answer_ok"
+                android:visibility="@{answerBean.select ? View.VISIBLE:View.INVISIBLE}" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{imageUrl == null? View.GONE:View.VISIBLE}"
+            binding:imageTestUrl="@{imageUrl}" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,45 @@
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <RadioButton
+                style="@style/TabItem"
+                android:text="全部" />
+
+            <RadioButton
+                style="@style/TabItem"
+                android:text="竞标中" />
+
+            <RadioButton
+                style="@style/TabItem"
+                android:text="已中标" />
+
+            <RadioButton
+                style="@style/TabItem"
+                android:text="未中标" />
+        </RadioGroup>
+
+        <com.rcpt.widget.SlideIndexView
+            android:id="@+id/index"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</layout>
+

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="userBean"
+            type="com.rcpt.bean.UserManageListBean.UserInfoBean" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/windowBackground" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/ll_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_user_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{userBean.types}"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="用户名："
+                            android:textSize="12sp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{userBean.user_name}"
+                            android:textColor="@color/colorTextBlack" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:visibility="@{userBean.user_type == 1?View.VISIBLE:View.GONE}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="姓名："
+                            android:textSize="12sp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{userBean.name}"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:visibility="@{userBean.user_type == 1?View.GONE:View.VISIBLE}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="企业名称："
+                            android:textSize="12sp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{userBean.company_name}"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{userBean.status}"
+                    android:textColor="@color/colorRed"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_below="@id/ll_top"
+                android:rotation="@{userBean.expand ? 45: 0}"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_vector_add"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/divider"
+                style="@style/divider_line"
+                android:layout_below="@id/ll_top"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/iv_add" />
+
+            <!--         <TextView
+                         android:id="@+id/tv_hint"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_below="@id/divider"
+                         android:layout_marginTop="15dp"
+                         android:layout_toEndOf="@id/tv_user_type"
+                         android:layout_toRightOf="@id/tv_user_type"
+                         android:gravity="center_horizontal"
+                         android:text="点击⊕查看更多信息"
+                         android:textSize="12sp"
+                         android:visibility="@{userBean.expand ? View.GONE : View.VISIBLE}" />-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="@{userBean.user_type == 1?View.VISIBLE:View.GONE}">
+                <!--注册时间-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{@string/register_time+userBean.registe_time}'
+                    android:textSize="12sp" />
+                <!--联系方式-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{@string/enterprise_phone+userBean.contact_info}'
+                    android:textSize="12sp" />
+                <!--邮箱-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{@string/email+userBean.mail}'
+                    android:textSize="12sp" />
+                <!--最后活跃时间-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{@string/last_active_time+userBean.login_time}'
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="@{userBean.user_type == 1?View.GONE:View.VISIBLE}">
+                <!--申请时间-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{@string/apply+userBean.registration_time}'
+                    android:textSize="12sp" />
+                <!--审核人-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{@string/auditor+userBean.reviewer}'
+                    android:textSize="12sp" />
+                <!--审核时间-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{@string/audit_time+userBean.review_time}'
+                    android:textSize="12sp" />
+                <!--地址-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{@string/address+userBean.address_detail}'
+                    android:textSize="12sp" />
+                <!--最后活跃时间-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text='@{@string/last_active_time+userBean.login_time}'
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <View style="@style/divider_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <!--如果userBean.user_status == 1审核中，会有审核通过和驳回两个选项-->
+            <!--如果userBean.user_status == 3未通过，会有审核通过和删除两个选项-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="@{userBean.user_type == 1 ? View.GONE :View.VISIBLE}">
+
+                <TextView
+                    android:id="@+id/tv_adopt"
+                    style="@style/text_small_button2"
+                    android:background="@drawable/bg_solid_green"
+                    android:text="审核通过"
+                    android:visibility="@{userBean.user_status == 1 || userBean.user_status == 3 ? View.VISIBLE : View.GONE}" />
+
+                <TextView
+                    android:id="@+id/tv_fail"
+                    style="@style/text_small_button2"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/bg_solid_blue"
+                    android:text="审核驳回"
+                    android:visibility="@{userBean.user_status == 1 ? View.VISIBLE : View.GONE}" />
+            </LinearLayout>
+
+            <!--如果userBean.user_status == 4说明当前的用户已经被锁定，会有解锁和删除两个选项
+                只有在审核通过的情况userBean.user_status == 2和被锁定的情况下，才会有该按钮的出现-->
+            <TextView
+                android:id="@+id/tv_locked"
+                style="@style/text_small_button2"
+                android:layout_marginLeft="8dp"
+                android:background="@{userBean.user_status == 4 ? @drawable/bg_solid_purple:@drawable/bg_stroke_gray}"
+                android:text='@{userBean.user_status == 4 ?@string/unlock_user:@string/lock_user}'
+                android:textColor="@{userBean.user_status == 4 ?@android:color/white:@color/colorGray}"
+                android:visibility="@{userBean.user_status == 2 || userBean.user_status == 4 || userBean.user_type == 1 ? View.VISIBLE:View.GONE}" />
+
+            <TextView
+                android:id="@+id/tv_del"
+                style="@style/text_small_button2"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/bg_solid_red"
+                android:text="删除用户"
+                android:visibility="@{userBean.user_type == 1 || userBean.user_status == 1 ? View.GONE:View.VISIBLE}" />
+
+            <TextView
+                android:id="@+id/tv_reset"
+                style="@style/text_small_button2"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/bg_solid_orange"
+                android:text="重置密码" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

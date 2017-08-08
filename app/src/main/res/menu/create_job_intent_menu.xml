@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><!--创建求职意向的菜单-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cv_menu_item_job_type"
+        android:enabled="false"
+        android:title="工作性质"
+        android:checkable="true"
+        android:titleCondensed="workType" />
+    <item
+        android:id="@+id/cv_menu_item_job_address"
+        android:enabled="false"
+        android:titleCondensed="address"
+        android:title="工作地点" />
+    <item
+        android:id="@+id/cv_menu_item_job_mode"
+        android:enabled="false"
+        android:title="职位类别"
+        android:checkable="true"
+        android:titleCondensed="expectedPosition" />
+    <item
+        android:id="@+id/cv_menu_item_trade_mode"
+        android:enabled="false"
+        android:title="行业类别"
+        android:checkable="true"
+        android:titleCondensed="expectedIndustry" />
+    <item
+        android:id="@+id/cv_menu_item_job_money"
+        android:enabled="false"
+        android:title="期望薪资"
+        android:checkable="true"
+        android:titleCondensed="hopeSalaryId" />
+    <item
+        android:id="@+id/cv_menu_item_job_status"
+        android:enabled="false"
+        android:title="求职状态"
+        android:checkable="true"
+        android:titleCondensed="state" />
+</menu>

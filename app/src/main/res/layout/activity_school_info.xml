@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="academyInfoBean"
+            type="com.rcpt.bean.AcademyInfoBean.SchoolInfoBean" />
+        
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="30dp"
+                    binding:imageUrl="@{academyInfoBean.schoolLog}" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/windowBackground" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学校名称："
+                        binding:text="@{academyInfoBean.schoolName}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学校名英文："
+                        binding:text="@{academyInfoBean.schoolNameEn}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="创建时间："
+                        binding:text="@{academyInfoBean.creationTime}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="重点学科："
+                        binding:text="@{academyInfoBean.keySubjects}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="隶属于："
+                        binding:text="@{academyInfoBean.belonging}" />
+
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学校类型："
+                        binding:text="@{academyInfoBean.schoolType}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学生人数："
+                        binding:text="@{academyInfoBean.studentNum}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="博士点个数："
+                        binding:text="@{academyInfoBean.doctorNum}" />
+
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="院士人数："
+                        binding:text="@{academyInfoBean.academicianNum}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="硕士点个数："
+                        binding:text="@{academyInfoBean.masterNum}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="所处城市："
+                        binding:text="@{academyInfoBean.addressProvince+academyInfoBean.addressCity}" />
+
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学校地址："
+                        binding:text="@{academyInfoBean.addressDetail}" />
+
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="校招电话："
+                        binding:text="@{academyInfoBean.contactTel}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="电子邮箱："
+                        binding:text="@{academyInfoBean.mail}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="官网："
+                        binding:toWebUrl="@{academyInfoBean.website}" />
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/windowBackground" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="院校介绍"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@color/windowBackground"
+                        android:padding="6dp"
+                        android:text='@{academyInfoBean.schoolDetail ?? "暂无相关信息"}' />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/windowBackground" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="校园状况"
+                        android:textColor="@android:color/black" />
+
+                    <com.rcpt.widget.NestRecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </com.rcpt.widget.NestRecyclerView>
+
+                    <ImageView
+                        android:id="@+id/tv_empty_picture_ex"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:scaleType="centerCrop"
+                        android:layout_margin="6dp"
+                        android:visibility="gone"
+                        android:padding="6dp"
+                        android:src="@mipmap/ic_no_picture"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>
+

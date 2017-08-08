@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><!--创建项目经验-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cv_menu_item_project_name"
+        android:enabled="false"
+        android:title="项目名称"
+        android:titleCondensed="proName" />
+    <item
+        android:id="@+id/cv_menu_item_project_time_start"
+        android:enabled="false"
+        android:title="开始时间"
+        android:titleCondensed="startTime" />
+    <item
+        android:id="@+id/cv_menu_item_project_time_end"
+        android:enabled="false"
+        android:title="结束时间"
+        android:titleCondensed="endTime" />
+
+    <item
+        android:id="@+id/cv_menu_item_project_tools"
+        android:enabled="false"
+        android:title="开发工具"
+        android:titleCondensed="tools" />
+
+    <item
+        android:id="@+id/cv_menu_item_project_involve"
+        android:enabled="false"
+        android:title="涉及技术"
+        android:titleCondensed="technology" />
+    <item
+        android:id="@+id/cv_menu_item_project_duty"
+        android:enabled="false"
+        android:title="项目职责"
+        android:titleCondensed="jobDesc" />
+    <item
+        android:id="@+id/cv_menu_item_project_describe"
+        android:enabled="false"
+        android:title="项目描述"
+        android:titleCondensed="proDesc" />
+
+</menu>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="infoBean"
+            type="com.rcpt.bean.RecruitJobInfoBean" />
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.presenter.RecruitInfoPresenter" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{infoBean.del_flg == 0 ? View.GONE:View.VISIBLE}">
+
+                <include layout="@layout/include_empty_layout" />
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{infoBean.del_flg == 0 ? View.VISIBLE:View.GONE}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{infoBean.positionName}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@{infoBean.salary}"
+                            android:textColor="@color/colorLightRed"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{infoBean.companyName}" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{infoBean.updateTimeStamp}" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/recruit_info_icon_size"
+                                android:layout_height="@dimen/recruit_info_icon_size"
+                                android:src="@drawable/ic_vector_recruit_location" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:maxEms="10"
+                                android:text="@{infoBean.workPlaceCity}"
+                                android:textSize="12sp" />
+
+                            <ImageView
+                                android:layout_width="@dimen/recruit_info_icon_size"
+                                android:layout_height="@dimen/recruit_info_icon_size"
+                                android:layout_marginLeft="10dp"
+                                android:src="@mipmap/ic_recruit_degree" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text='@{null == infoBean.education ? "学历不限" : infoBean.education}'
+                                android:textSize="12sp" />
+
+                            <ImageView
+                                android:layout_width="@dimen/recruit_info_icon_size"
+                                android:layout_height="@dimen/recruit_info_icon_size"
+                                android:layout_marginLeft="10dp"
+                                android:src="@mipmap/ic_recruit_job_type" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text='@{null == infoBean.jobType ? "工作类型不限" : infoBean.jobType}'
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/recruit_info_icon_size"
+                                android:layout_height="@dimen/recruit_info_icon_size"
+                                android:src="@drawable/ic_vector_recruit_num" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="@{infoBean.recruitmentNumber+@string/people_str}"
+                                android:textSize="12sp" />
+                            <ImageView
+                                android:layout_width="@dimen/recruit_info_icon_size"
+                                android:layout_height="@dimen/recruit_info_icon_size"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/ic_vector_recruit_working_life" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text='@{null == infoBean.workingLife ? "工作年限不限" : infoBean.workingLife}'
+                                android:textSize="12sp" />
+
+                            <ImageView
+                                android:layout_width="@dimen/recruit_info_icon_size"
+                                android:layout_height="@dimen/recruit_info_icon_size"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/ic_vector_recruit_type" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text='@{null == infoBean.oriented_group ? "招聘范围不限" : infoBean.oriented_group}'
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="职位描述"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="18sp" />
+
+                    <View
+                        style="@style/divider_line"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="65dp"
+                        android:padding="13dp"
+                        android:text='@{Html.fromHtml(infoBean.jobDescription??"")}' />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+            <LinearLayout
+                android:id="@+id/ll_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="@{infoBean.del_flg == 0 ? View.VISIBLE:View.GONE}">
+
+                <Button
+                    android:id="@+id/btn_send_resume"
+                    style="@style/small_button"
+                    android:background="@drawable/bg_light_yellow_btn"
+                    android:onClick="@{()->presenter.onClickSendResume()}"
+                    android:text="投递简历"
+                    android:textColor="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/iv_follow"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/bg_blue_round_corners"
+                    android:onClick="@{()->presenter.onClickAddFavorites()}"
+                    android:padding="6dp"
+                    android:src="@mipmap/ic_recruit_follow" />
+            </LinearLayout>
+
+            <View
+                style="@style/divider_line"
+                android:layout_above="@id/ll_bottom" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

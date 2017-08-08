@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/colorBlue</color>
+    <color name="colorPrimaryDark">@color/colorBlue</color>
+    <color name="colorAccent">@color/colorBlue</color>
+    <color name="windowBackground">#f4f4f4</color>
+
+    <color name="colorBottomSelected">@color/colorBlue</color>
+    <color name="colorBottomUnSelected">#676c72</color>
+    <color name="colorTitleColor">@android:color/white</color>
+
+    <color name="colorDivider">#888</color>
+    <color name="colorLightDivider">#eee</color>
+    <color name="colorMeMenuSpace">#FFefefef</color>
+
+    <color name="colorTextBlack">#333</color>
+    <color name="colorLightRed">#f12121</color>
+    <color name="colorGray">#aaa</color>
+    <color name="colorLightBlue">#65bdef</color>
+    <color name="colorLightBlue2">#26a6ef</color>
+    <color name="colorDarkGray">#888</color>
+    <color name="colorLightGray">#ddd</color>
+    <color name="colorBlue">#308ee3</color>
+    <color name="colorRed">#f46360</color>
+    <color name="colorYellow">#fe9b19</color>
+    <color name="colorLightYellow">#ffaa50</color>
+    <color name="colorOrange">#ff773f</color>
+    <color name="colorGreen">#2fc134</color>
+    <color name="colorPurple">#8c4ae1</color>
+</resources>

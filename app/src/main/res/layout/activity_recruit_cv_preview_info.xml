@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.presenter.RecruitCVPreviewInfoPresenter" />
+
+        <variable
+            name="infoBean"
+            type="com.rcpt.bean.CVPreviewInfoBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <LinearLayout
+            android:id="@+id/ll_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBlue"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_stroke_white"
+                android:onClick="@{()->presenter.onClickSendPositionInvite()}"
+                android:paddingBottom="5dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp"
+                android:paddingTop="5dp"
+                android:text="职位邀请"
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/iv_collect"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:onClick="@{()->presenter.onClickCollectCV()}"
+                android:src="@drawable/ic_vector_cv_un_collect" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.rcpt.widget.TitleTabView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleLeftIcon="@drawable/ic_vector_cv_basic"
+                    app:titleName="基本资料"
+                    app:titleTextSize="14sp" />
+
+                <View
+                    style="@style/divider_line"
+                    android:layout_marginLeft="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@{infoBean.cvPertsonalInfo.sex == 1 ? @drawable/ic_vector_girl : @drawable/ic_vector_boy}"
+                        binding:errorImage="@{@drawable/ic_vector_default_avatar}"
+                        binding:imageCircleUrl="@{infoBean.cvPertsonalInfo.userPicture}" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="5dp"
+                            android:drawableRight="@{infoBean.cvPertsonalInfo.sex == 1 ? @drawable/ic_vector_woman:@drawable/ic_vector_man}"
+                            android:text="@{infoBean.cvPertsonalInfo.name}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text='@{infoBean.cvPertsonalInfo.maritalStatus+" | "+infoBean.cvPertsonalInfo.age+@string/age}'
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{infoBean.cvPertsonalInfo.workAge == 0 ? @string/fresh_graduates :infoBean.cvPertsonalInfo.workAge+@string/work_ex}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:text="联系方式:"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="电子邮箱："
+                            android:textSize="12sp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="期望工作地:"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="学历:"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:maxLines="1"
+                            android:text="@{infoBean.cvPertsonalInfo.contactInfo}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:maxLines="1"
+                            android:text="@{infoBean.cvPertsonalInfo.mail}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:maxLines="1"
+                            android:text="@{infoBean.jobIntension.workPlace}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:maxLines="1"
+                            android:text="@{infoBean.cvPertsonalInfo.education}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <com.rcpt.widget.TitleTabView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleLeftIcon="@drawable/ic_vector_cv_self"
+                    app:titleName="自我评价"
+                    app:titleTextSize="14sp" />
+
+                <View
+                    style="@style/divider_line"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:padding="15dp"
+                    android:text="@{infoBean.jobIntension.selfAppraisal}"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <com.rcpt.widget.TitleTabView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleLeftIcon="@drawable/ic_vector_cv_job_intent"
+                    app:titleName="求职意向"
+                    app:titleTextSize="14sp" />
+
+                <View
+                    style="@style/divider_line"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_empty_job_intent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="暂无求职意向信息"
+                    android:textColor="@color/colorTextBlack"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="6"
+                            android:text="期望工作性质："
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{infoBean.jobIntension.workType}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="6"
+                            android:text="期望从事行业："
+                            android:textSize="12sp" />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{infoBean.jobIntension.indeustry}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="6"
+                            android:text="期望从事职业："
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{infoBean.jobIntension.position}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="7"
+                            android:text="期望月薪(税前)："
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{infoBean.jobIntension.salary}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="5"
+                            android:text="工作状态："
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{infoBean.jobIntension.workingState}"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <com.rcpt.widget.TitleTabView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleLeftIcon="@drawable/ic_vector_cv_education"
+                    app:titleName="教育经历"
+                    app:titleTextSize="14sp" />
+
+                <View
+                    style="@style/divider_line"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_empty_education"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="尚未完善此栏目"
+                    android:textColor="@color/colorTextBlack"
+                    android:visibility="gone" />
+
+                <com.rcpt.widget.NestRecyclerView
+                    android:id="@+id/education_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:paddingTop="8dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <com.rcpt.widget.TitleTabView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleLeftIcon="@drawable/ic_vector_cv_work_ex"
+                    app:titleName="工作经历"
+                    app:titleTextSize="14sp" />
+
+                <View
+                    style="@style/divider_line"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_empty_work_ex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="尚未完善此栏目"
+                    android:textColor="@color/colorTextBlack"
+                    android:visibility="gone" />
+
+                <com.rcpt.widget.NestRecyclerView
+                    android:id="@+id/work_ex_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:paddingTop="8dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <com.rcpt.widget.TitleTabView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:titleLeftIcon="@drawable/ic_vector_cv_project_ex"
+                    app:titleName="项目经验"
+                    app:titleTextSize="14sp" />
+
+                <View
+                    style="@style/divider_line"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_empty_project_ex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="尚未完善此栏目"
+                    android:textColor="@color/colorTextBlack"
+                    android:visibility="gone" />
+
+                <com.rcpt.widget.NestRecyclerView
+                    android:id="@+id/project_ex_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:paddingTop="8dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.TestQuestionInfoContract.Presenter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_ability_test"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:src="@mipmap/ic_ability_top" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/bg_ability_top" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/bg_ability_left" />
+
+            <ImageView
+                android:id="@+id/iv_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/bg_ability_right" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/iv_left"
+                android:layout_toLeftOf="@id/iv_right"
+                android:layout_toRightOf="@id/iv_left"
+                android:layout_toStartOf="@id/iv_right"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp">
+
+                    <View style="@style/weight_view" />
+
+                    <Button
+                        android:id="@+id/btn_last"
+                        style="@style/small_button"
+                        android:background="@drawable/bg_green_btn"
+                        android:onClick="@{()->presenter.onClickGoLast()}"
+                        android:text="上一题"
+                        android:textColor="@android:color/white" />
+
+                    <View style="@style/weight_view" />
+
+                    <Button
+                        android:id="@+id/btn_next"
+                        style="@style/small_button"
+                        android:background="@drawable/bg_green_btn"
+                        android:onClick="@{()->presenter.onClickGoNext()}"
+                        android:text="下一题"
+                        android:textColor="@android:color/white" />
+
+                    <View style="@style/weight_view" />
+
+                    <Button
+                        style="@style/small_button"
+                        android:background="@drawable/bg_orange_btn"
+                        android:onClick="@{()->presenter.onClickHandExams()}"
+                        android:text="交卷"
+                        android:textColor="@android:color/white" />
+
+                    <View style="@style/weight_view" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/bg_ability_bottom" />
+    </LinearLayout>
+</layout>

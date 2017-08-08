@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.presenter.RecruitPresenter" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="203dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bg_recruit_head" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="150dp"
+                    android:background="@drawable/bg_white_round"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_title_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingBottom="16dp"
+                        android:paddingTop="20dp"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_search_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/bg_search"
+                        android:maxLines="1"
+                        android:onClick="@{()->presenter.onClickGoRecruitListWithSearch()}"
+                        android:padding="10dp"
+                        android:textColor="@color/colorTextBlack"
+                        android:textColorHint="#999"
+                        android:textSize="14sp" />
+
+                    <Button
+                        style="@style/small_button"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_blue_btn"
+                        android:onClick="@{()->presenter.onClickGoRecruitList()}"
+                        android:paddingLeft="60dp"
+                        android:paddingRight="60dp"
+                        android:text="前往"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <com.rcpt.widget.NestRecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="userBean"
+            type="com.rcpt.bean.SystemUserInfoBean" />
+
+        <variable
+            name="isEdit"
+            type="Boolean" />
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.SystemUserContract.Presenter" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/divider_line"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/divider_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:text="账户类型："
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_role"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stroke_gray"
+                        android:ellipsize="end"
+                        android:hint="请点击选择账户类型"
+                        android:maxLines="1"
+                        android:onClick="@{()->presenter.onClickOpenRoleSelect()}"
+                        android:padding="8dp"
+                        android:text="@{userBean.roleName}"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:text="所属单位："
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_authorities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stroke_gray"
+                        android:ellipsize="end"
+                        android:hint="请点击选择所属商务局"
+                        android:maxLines="1"
+                        android:onClick="@{()->presenter.onClickOpenAddressSelect()}"
+                        android:padding="8dp"
+                        android:text="@{userBean.authoritiesName}"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/divider_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:text="用户名："
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@{isEdit ? @drawable/bg_solid_gray: @drawable/bg_stroke_gray }"
+                        android:enabled="@{!isEdit}"
+                        android:hint="请输入用户名"
+                        android:padding="8dp"
+                        android:singleLine="true"
+                        android:text="@={userBean.USERNAME}"
+                        android:textColor="@{isEdit ? @color/colorDarkGray : @color/colorTextBlack}"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:text="编号："
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stroke_gray"
+                        android:hint="请输入编号"
+                        android:inputType="number"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:padding="8dp"
+                        android:text="@={userBean.NUMBER}"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:visibility="@{isEdit ? View.GONE:View.VISIBLE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:text="密码："
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/edit_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stroke_gray"
+                        android:hint="请输入密码"
+                        android:inputType="textPassword"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:padding="8dp"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:visibility="@{isEdit ? View.GONE:View.VISIBLE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:text="确认密码："
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/edit_again_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stroke_gray"
+                        android:hint="请再次输入密码"
+                        android:inputType="textPassword"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:padding="8dp"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/divider_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:text="姓名："
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stroke_gray"
+                        android:hint="请输入姓名"
+                        android:padding="8dp"
+                        android:singleLine="true"
+                        android:text="@={userBean.NAME}"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:text="手机号："
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stroke_gray"
+                        android:hint="请输入手机号"
+                        android:inputType="phone"
+                        android:lines="1"
+                        android:maxLength="11"
+                        android:maxLines="1"
+                        android:padding="8dp"
+                        android:text="@={userBean.PHONE}"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="5"
+                        android:text="邮箱："
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stroke_gray"
+                        android:hint="请输入邮箱"
+                        android:inputType="textEmailAddress"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:padding="8dp"
+                        android:text="@={userBean.EMAIL}"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:ems="5"
+                        android:text="备注："
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_stroke_gray"
+                        android:gravity="left"
+                        android:hint="请输入备注信息"
+                        android:lines="5"
+                        android:maxLines="5"
+                        android:padding="8dp"
+                        android:text="@={userBean.BZ}"
+                        android:textColor="@color/colorTextBlack"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

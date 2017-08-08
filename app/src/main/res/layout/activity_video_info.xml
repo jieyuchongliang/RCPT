@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.VideoInfoContract.Presenter" />
+
+        <variable
+            name="imageUrl"
+            type="String" />
+
+        <variable
+            name="bean"
+            type="com.rcpt.bean.VideoInfoBaseBean" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/ll_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_play_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_init_video"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:fitsSystemWindows="true">
+
+                <ImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    binding:imageVideoUrl="@{imageUrl}" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#0a000000"
+                        android:onClick="@{()->presenter.onClickCloseActivity()}"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="4dp"
+                        android:scaleType="center"
+                        android:src="@drawable/ic_vector_back" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/colorBlue"
+            app:tabIndicatorHeight="2dp"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/colorBlue" />
+
+        <View style="@style/divider_line" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <View style="@style/divider_line" />
+
+
+            <Button
+                style="@style/small_button"
+                android:layout_width="130dp"
+                android:layout_centerInParent="true"
+                android:background="@{bean.buyFlag == 0? @drawable/bg_light_yellow_btn : @drawable/bg_gray_btn}"
+                android:enabled="@{bean.buyFlag == 0}"
+                android:onClick="@{()->presenter.onClickBuyVideo()}"
+                android:text="@{bean.buyFlag == 0 ? @string/buy_now:@string/already_buy}"
+                android:textColor="@android:color/white" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</layout>

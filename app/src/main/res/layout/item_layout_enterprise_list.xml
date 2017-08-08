@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.rcpt.bean.EnterpriseListBean.BusinesslistBean" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/enterprise_card_margin"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="@dimen/enterprise_card_elevation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"
+                binding:imageRadius="@{8}"
+                binding:imageRoundUrl="@{bean.logo}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@{bean.companyName}"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="12sp"
+                binding:appendText='@{@string/enterprise_address}'
+                binding:text='@{(bean.addressProvince == null ? "" : bean.addressProvince)+(bean.addressCity == null ? "":bean.addressCity)}'
+                android:maxEms="11"
+                android:singleLine="true"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="12sp"
+                binding:appendText='@{@string/enterprise_contact}'
+                binding:text="@{bean.contact}"
+                android:maxEms="11"
+                android:singleLine="true"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="12sp"
+                binding:appendText='@{@string/enterprise_phone}'
+                binding:text="@{bean.contactTel}"
+                android:maxEms="11"
+                android:singleLine="true"
+                android:ellipsize="end"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</layout>

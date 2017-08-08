@@ -1,0 +1,35 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="home_banner_height">180dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="filter_height">45dp</dimen>
+    <!--注册选择页面的规格（选择个人和团体的注册）-->
+    <dimen name="register_select_btn_width">250dp</dimen>
+    <dimen name="register_select_btn_height">56dp</dimen>
+    <dimen name="register_select_btn_text_size">18sp</dimen>
+
+    <dimen name="register_layout_margin">25dp</dimen>
+
+    <dimen name="list_image_height">80dp</dimen>
+    <dimen name="list_image_width">105dp</dimen>
+
+    <dimen name="institution_course_height">40dp</dimen>
+    <dimen name="institution_course_width">60dp</dimen>
+
+    <dimen name="recruit_info_icon_size">18dp</dimen>
+
+    <dimen name="cv_management_item_padding">13dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="enterprise_card_margin">1dp</dimen>
+    <dimen name="enterprise_card_elevation">6dp</dimen>
+    <dimen name="consult_service_margin">0dp</dimen>
+    <dimen name="consult_service_elevation">3dp</dimen>
+    <dimen name="test_select_image_height">120dp</dimen>
+    <dimen name="test_hint_image_height">140dp</dimen>
+    <dimen name="test_question_elevation">2dp</dimen>
+    <dimen name="test_select_elevation">0dp</dimen>
+
+
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="isBuy"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="contentBean"
+            type="com.rcpt.bean.VideoInfoCatalogBean.VideoInfoContentBean" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_click"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/ic_vector_catalog_content_play" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="1"
+            android:text="@{contentBean.contentName}"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/tv_charge_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_vector_up"
+            android:text="@{contentBean.chargeStatus == 2 ? @string/trailers_str:contentBean.chargeStatus == 1 ?@string/free_str:@string/charge_str}"
+            android:textColor="@{contentBean.chargeStatus == 2 ?@color/colorRed:contentBean.chargeStatus == 1 ? @color/colorGreen:@color/colorBlue}"
+            android:textSize="12sp"
+            android:visibility="@{isBuy ? View.GONE:View.VISIBLE}" />
+
+    </LinearLayout>
+</layout>

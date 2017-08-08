@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/company_recruit_menu_group_one">
+        <item
+            android:id="@+id/company_recruit_menu_item_name"
+            android:title="职位名称"
+            android:titleCondensed="positionName" />
+        <item
+            android:id="@+id/company_recruit_menu_item_position_type"
+            android:title="职位类型"
+            android:titleCondensed="positionTypeName" />
+        <item
+            android:id="@+id/company_recruit_menu_item_oriented_group"
+            android:title="面向群体"
+            android:titleCondensed="orientedGroup" />
+        <item
+            android:id="@+id/company_recruit_menu_item_salary"
+            android:title="薪资待遇"
+            android:titleCondensed="salaryName" />
+        <item
+            android:id="@+id/company_recruit_menu_item_recruit_num"
+            android:title="招聘人数"
+            android:titleCondensed="recruitmentNumber" />
+        <item
+            android:id="@+id/company_recruit_menu_item_accept_num"
+            android:title="应聘人数"
+            android:checkable="true"
+            android:titleCondensed="total" />
+    </group>
+    <group android:id="@+id/company_recruit_menu_group_two">
+        <item
+            android:id="@+id/company_recruit_menu_item_education_name"
+            android:title="学历要求"
+            android:titleCondensed="educationName" />
+        <item
+            android:id="@+id/company_recruit_menu_item_job_type"
+            android:title="工作类型"
+            android:titleCondensed="jobTypeName" />
+        <item
+            android:id="@+id/company_recruit_menu_item_work_life"
+            android:title="工作年限"
+            android:titleCondensed="workingLifeName" />
+    </group>
+    <group android:id="@+id/company_recruit_menu_group_three">
+        <item
+            android:id="@+id/company_recruit_menu_item_work_address"
+            android:title="工作地点"
+            android:titleCondensed="workAddress" />
+        <item
+            android:id="@+id/company_recruit_menu_item_receive_email"
+            android:title="接收邮箱"
+            android:titleCondensed="receiveEmail" />
+        <item
+            android:id="@+id/company_recruit_menu_item_job_description"
+            android:title="职位描述"
+            android:titleCondensed="jobDescription" />
+    </group>
+</menu>

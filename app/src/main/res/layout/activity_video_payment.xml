@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.VideoPaymentContract.Presenter" />
+
+        <variable
+            name="bean"
+            type="com.rcpt.bean.VideoPaymentBean" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:divider="@drawable/divider_line"
+            android:dividerPadding="10dp"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="课程信息"
+                android:textColor="@color/colorTextBlack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="名称"
+                    android:textColor="@color/colorTextBlack" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{bean.courseName}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="金额"
+                    android:textColor="@color/colorTextBlack" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/money_symbol+bean.coursePrice}"
+                    android:textColor="@color/colorLightRed" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:divider="@drawable/divider_line"
+            android:dividerPadding="10dp"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="选择支付方式"
+                android:textColor="@color/colorTextBlack" />
+
+            <RadioButton
+                android:id="@+id/radio_btn_alipay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:checked="true"
+                android:drawableLeft="@drawable/ic_vector_alipay"
+                android:drawablePadding="6dp"
+                android:drawableRight="@drawable/ic_payment_select_type"
+                android:padding="5dp"
+                android:text="支付宝"
+                android:textColor="@color/colorTextBlack" />
+
+            <RadioButton
+                android:id="@+id/radio_btn_weixin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableLeft="@drawable/ic_vector_weixin"
+                android:drawablePadding="6dp"
+                android:drawableRight="@drawable/ic_payment_select_type"
+                android:padding="5dp"
+                android:text="微信"
+                android:textColor="@color/colorTextBlack" />
+        </RadioGroup>
+
+        <Button
+            style="@style/big_button"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_green_btn"
+            android:onClick="@{()->presenter.onClickStartPay()}"
+            android:text="支付" />
+
+    </LinearLayout>
+
+</layout>

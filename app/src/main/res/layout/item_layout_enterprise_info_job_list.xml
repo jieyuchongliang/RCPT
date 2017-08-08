@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="jobListBean"
+            type="com.rcpt.bean.EnterpriseInfoBean.JobListBean" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+
+        <Button
+            android:id="@+id/btn_find"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_blue_btn"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="立即查看"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/EnterpriseInfoTextStyle"
+            android:layout_width="match_parent"
+            android:layout_toLeftOf="@id/btn_find"
+            android:layout_height="wrap_content"
+            android:text="@{jobListBean.positionName}"
+            android:textSize="14sp" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            style="@style/EnterpriseInfoTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/space"
+            android:text="@{jobListBean.workPlaceCity}" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/EnterpriseInfoTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/space"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@{jobListBean.updateTimestamp}" />
+
+    </RelativeLayout>
+</layout>

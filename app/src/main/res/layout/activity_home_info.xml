@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.rcpt.mvp.contract.HomeInfoContract" />
+
+        <variable
+            name="infoType"
+            type="String" />
+
+        <variable
+            name="infoBean"
+            type="com.rcpt.bean.HomeInfoBean" />
+        <variable
+            name="homeInfoPresenter"
+            type="com.rcpt.mvp.presenter.HomeInfoPresenter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="14dp"
+                    android:maxLines="2"
+                    android:text="@{infoBean.title}"
+                    android:ellipsize="end"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+                <!--"更新时间："+-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="12dp"
+                    android:text='@{@string/update_time+infoBean.updateDate}'
+                    android:textColor="#868585"
+                    android:textSize="13sp"
+                    android:visibility="@{infoBean.updateDate==null?View.GONE:View.VISIBLE}" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:background="#d7d7d7"
+                    android:visibility="@{HomeInfoContract.INFO_TYPE_CONSULT_SERVICE.equals(infoType)?View.VISIBLE:View.GONE}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="12dp"
+                    android:orientation="horizontal"
+                    android:visibility="@{HomeInfoContract.INFO_TYPE_CONSULT_SERVICE.equals(infoType)?View.GONE:View.VISIBLE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="来源:" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@{infoBean.sources}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="发布时间:" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{infoBean.insertTimestamp == null ?  infoBean.updateTimestamp : infoBean.insertTimestamp}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:divider="@drawable/divider_line"
+                    android:orientation="vertical"
+                    android:visibility="@{HomeInfoContract.INFO_TYPE_CONSULT_SERVICE.equals(infoType)?View.VISIBLE:View.GONE}">
+
+                    <!--"联系人："+-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="12dp"
+                        android:paddingTop="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:text='@{@string/enterprise_contact}'
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:text='@{infoBean.person}'
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5sp"
+                        android:layout_marginRight="10dp"
+                        android:background="#b4b4b4" />
+                    <!--"联系电话："+-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="12dp"
+                        android:paddingTop="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:text='@{@string/enterprise_phone}'
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:text='@{infoBean.tel}'
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+                        <ImageView
+                            android:id="@+id/call_image"
+                            android:onClick="@{()->homeInfoPresenter.call(infoBean.tel)}"
+                            android:src="@drawable/ic_vector_call"
+                            android:layout_marginRight="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5sp"
+                        android:layout_marginRight="10dp"
+                        android:background="#b4b4b4" />
+
+                    <!--"服务类型："+-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="12dp"
+                        android:paddingTop="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:text='@{@string/service_type}'
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="3dp"
+                            android:text='@{infoBean.value}'
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:background="#d7d7d7"
+                    android:visibility="@{HomeInfoContract.INFO_TYPE_CONSULT_SERVICE.equals(infoType)?View.VISIBLE:View.GONE}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:visibility="@{HomeInfoContract.INFO_TYPE_CONSULT_SERVICE.equals(infoType)?View.VISIBLE:View.GONE}">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:background="#fd4a4a" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="详细信息"
+                        android:textColor="#c7c7c7"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <WebView
+                    android:id="@+id/web_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

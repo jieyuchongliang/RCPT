@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="已选条件："
+                android:textColor="#333" />
+
+            <TextView
+                android:id="@+id/tv_select_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_filter_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eee"
+            android:gravity="center"
+            android:padding="35dp"
+            android:text="暂无筛选条件"
+            android:textColor="#444"
+            android:textSize="16sp" />
+
+        <ScrollView
+            android:id="@+id/sl_filter_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eee">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#eee"
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp">
+
+
+                    <TextView
+                        android:id="@+id/tv_reset"
+                        style="@style/text_small_button"
+                        android:background="@drawable/bg_orange_btn"
+                        android:text="重置" />
+
+
+                    <TextView
+                        android:id="@+id/tv_close"
+                        style="@style/text_small_button"
+                        android:background="@drawable/bg_red_btn"
+                        android:text="关闭" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+
+
+
+    </LinearLayout>
+</layout>

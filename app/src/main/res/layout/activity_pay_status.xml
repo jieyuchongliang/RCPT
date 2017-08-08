@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="payStatus"
+            type="Boolean" />
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.PayStatusContract.Presenter" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <!--<ImageView
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="45dp"
+            4590CD ok
+            F44005 error
+            android:src="@{payStatus ? @drawable/ic_vector_pay_ok : @drawable/ic_vector_pay_error}" />-->
+
+        <TextView
+            android:id="@+id/tv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="45dp"
+            android:padding="2dp"
+            android:text="@{payStatus ? @string/icon_pay_success:@string/icon_pay_error}"
+            android:textColor="@{payStatus ? @color/colorBlue:@color/colorOrange}"
+            android:textSize="87sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="@{payStatus ?  @string/pay_success : @string/pay_error}"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="18sp" />
+
+        <Button
+            style="@style/big_button"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/bg_yellow_btn"
+            android:onClick="@{()->presenter.onClickGoOrderList()}"
+            android:text="查看订单" />
+
+    </LinearLayout>
+</layout>

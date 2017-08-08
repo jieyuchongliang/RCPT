@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.Gravity" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="bean"
+            type="com.rcpt.bean.InstitutionDetailBean" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+                <!--轮播图-->
+                <com.bigkoo.convenientbanner.ConvenientBanner
+                    android:id="@+id/environment_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/home_banner_height"
+                    android:layout_marginTop="4dp"
+                    app:canLoop="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<com.rcpt.widget.NestRecyclerView-->
+                    <!--android:id="@+id/enviroment_recycler_view"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent">-->
+
+                    <!--</com.rcpt.widget.NestRecyclerView>-->
+
+                    <!--</LinearLayout>-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@{bean.institutionInfo.introduction}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/institution_employment" />
+
+                    <View
+                        style="@style/divider_line"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="@{TextUtils.isEmpty(bean.institutionInfo.employment)?Gravity.CENTER_HORIZONTAL:Gravity.LEFT}"
+                        android:text='@{ TextUtils.isEmpty(bean.institutionInfo.employment)?"没有相关就业情况":bean.institutionInfo.employment}' />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/institution_course" />
+
+                    <View
+                        style="@style/divider_line"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:id="@+id/tv_empty_course_ex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="没有相关机构课程信息"
+                        android:visibility="gone" />
+
+                    <com.rcpt.widget.NestRecyclerView
+                        android:id="@+id/course_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </com.rcpt.widget.NestRecyclerView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/institution_teacher" />
+
+                    <View
+                        style="@style/divider_line"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_empty_teacher_ex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="没有相关机构师资信息"
+                        android:visibility="gone" />
+
+                    <com.rcpt.widget.NestRecyclerView
+                        android:id="@+id/teacher_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </com.rcpt.widget.NestRecyclerView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

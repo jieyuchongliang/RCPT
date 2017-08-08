@@ -1,0 +1,302 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.presenter.HomePresenter" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/windowBackground">
+
+        <include layout="@layout/app_layout_title" />
+
+        <com.rcpt.widget.VpSwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.rcpt.widget.ObservableScrollView
+                android:id="@+id/sl_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+                <!--ScrollView的直接子布局-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+
+                    <!--轮播图-->
+                    <com.bigkoo.convenientbanner.ConvenientBanner
+                        android:id="@+id/convenient_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/home_banner_height"
+                        app:canLoop="true" />
+                    <!--轮播图end-->
+                    <!--公告-->
+                    <LinearLayout
+                        android:id="@+id/ll_view_flipper_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:src="@drawable/ic_vector_home_affiche" />
+
+                        <ViewFlipper
+                            android:id="@+id/view_flipper"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:autoStart="true"
+                            android:inAnimation="@anim/anim_marquee_in"
+                            android:outAnimation="@anim/anim_marquee_out"
+                            android:paddingLeft="10dp" />
+                    </LinearLayout>
+
+                    <View style="@style/divider_line_light" />
+                    <!--公告end-->
+                    <!--固定菜单栏-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <!--第一行菜单-->
+                        <LinearLayout
+                            android:id="@+id/ll_one_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:orientation="horizontal">
+
+                            <include
+                                android:id="@+id/include_news"
+                                layout="@layout/include_home_column_item" />
+
+                            <include
+                                android:id="@+id/include_training"
+                                layout="@layout/include_home_column_item" />
+
+                            <include
+                                android:id="@+id/include_consult"
+                                layout="@layout/include_home_column_item" />
+
+                            <include
+                                android:id="@+id/include_test"
+                                layout="@layout/include_home_column_item" />
+                        </LinearLayout>
+
+                        <View style="@style/divider_line_light" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp" />
+
+                        <View style="@style/divider_line_light" />
+                        <!--第一行菜单end-->
+                        <!--第二行菜单-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/white"
+                            android:orientation="horizontal">
+                            <!--人才通道-->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:onClick="@{()->presenter.onClickGoTalented()}"
+                                android:orientation="vertical"
+                                android:paddingBottom="10dp"
+                                android:paddingTop="10dp">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginTop="2dp"
+                                    android:src="@drawable/ic_vector_home_talented" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:text="人才通道"
+                                    android:textColor="@color/colorTextBlack" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:gravity="center"
+                                    android:text="入口简单方便\n多服务轻松集成"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <View style="@style/vertical_divider_line_light" />
+                            <!--人才通道end-->
+                            <!--右侧菜单父布局-->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:orientation="vertical">
+                                <!--接发包-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:onClick="@{()->presenter.onClickGoJieFaBao()}"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="30dp">
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/ic_vector_home_jiefabao" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="接发包"
+                                            android:textColor="@color/colorTextBlack" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:text="接发包"
+                                            android:textSize="12sp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View style="@style/divider_line_light" />
+                                <!--接发包end-->
+                                <!--政策法规-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:onClick="@{()->presenter.onClickGoPolicy()}"
+                                    android:orientation="horizontal"
+                                    android:paddingLeft="30dp">
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/ic_vector_home_policy" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="政策法规"
+                                            android:textColor="@color/colorTextBlack" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:ellipsize="end"
+                                            android:maxLines="1"
+                                            android:text="行业发展、产业建设、人才支持"
+                                            android:textSize="12sp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                                <!--政策法规end-->
+                            </LinearLayout>
+                            <!-- 右侧菜单父布局end-->
+                        </LinearLayout>
+                        <!--第二行菜单end-->
+                    </LinearLayout>
+
+                    <View style="@style/divider_line_light" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp" />
+                    <!--固定菜单栏end-->
+
+                    <!--最新关注列表标题-->
+                    <View style="@style/divider_line_light" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <View
+                            android:layout_width="3dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorBlue" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="培训机构"
+                            android:textColor="@color/colorTextBlack"
+                            android:textSize="16sp" />
+
+                        <View style="@style/weight_view" />
+
+                        <!--<ImageView-->
+                            <!--android:layout_width="60dp"-->
+                            <!--android:layout_height="20dp"-->
+                            <!--android:onClick="@{()->presenter.onClickGoInstituteList()}"-->
+                            <!--android:src="@drawable/ic_vector_home_go" />-->
+
+                        <TextView
+                            android:padding="12dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="查看更多"
+                            android:textSize="10sp"
+                            android:onClick="@{()->presenter.onClickGoInstituteList()}"/>
+                    </LinearLayout>
+
+                    <View style="@style/divider_line_light" />
+                    <!--最新关注列表标题end-->
+                    <com.rcpt.widget.NestRecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <!--ScrollView的直接子布局end-->
+            </com.rcpt.widget.ObservableScrollView>
+        </com.rcpt.widget.VpSwipeRefreshLayout>
+
+    </LinearLayout>
+
+</layout>

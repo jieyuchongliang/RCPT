@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/ll_parent"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_below="@+id/ll_group_job_filter"
+            android:layout_marginTop="-350dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:overScrollMode="never" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_group_job_filter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/filter_height"
+            android:visibility="gone"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/job_filter_industry"
+                style="@style/FilterStyle"
+                android:text="行业" />
+
+            <CheckBox
+                android:id="@+id/job_filter_sal_range"
+                style="@style/FilterStyle"
+                android:text="薪资" />
+
+            <CheckBox
+                android:id="@+id/job_filter_job_type"
+                style="@style/FilterStyle"
+                android:text="工作类型" />
+
+            <CheckBox
+                android:id="@+id/job_filter_range"
+                style="@style/FilterStyle"
+                android:text="招聘范围" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

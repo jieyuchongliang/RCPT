@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/filter_height"
+                android:orientation="vertical">
+
+                <com.liaoinstan.springview.widget.SpringView
+                    android:id="@+id/spring_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.rcpt.widget.EmptyRecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/windowBackground" />
+
+                </com.liaoinstan.springview.widget.SpringView>
+
+                <include
+                    android:id="@+id/empty_view"
+                    layout="@layout/include_empty_layout" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/bg_gray"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#81000000"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:id="@+id/ll_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_below="@+id/ll_school_filter"
+                    android:layout_marginTop="-350dp">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/filter_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:overScrollMode="never" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_school_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/filter_height"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cbx_school_filter_type"
+                        style="@style/FilterStyle"
+                        android:text="类型" />
+
+                    <CheckBox
+                        android:id="@+id/cbx_school_filter_batch"
+                        style="@style/FilterStyle"
+                        android:text="批次" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+</layout>

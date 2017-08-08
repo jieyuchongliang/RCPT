@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">慧眼识才</string>
+    <string name="enterprise_address">公司地址：</string>
+    <string name="enterprise_contact">联 系 人：</string>
+    <string name="industry_contact">联系人：</string>
+    <string name="enterprise_phone">联系电话：</string>
+    <string name="time_unit">月</string>
+    <string name="time_unit_value">个月</string>
+
+    <string name="forget_password_save_new_password_hint">请为您的账号设置一个新密码</string>
+    <string name="forget_password_send_verify_phone_hint">我们已发送验证码到您的手机：\n%s</string>
+    <string name="forget_password_send_verify_emil_hint">我们已发送验证码到您的邮箱：\n%s</string>
+
+    <string name="new_message_notification_title_template">New message: %1$s</string>
+    <string name="new_message_notification_placeholder_text_template">You said %1$s and lorem ipsum
+        dolor sit amet, consectetur adipiscing elit. Etiam non enim magna. Morbi dictum, velit vel
+        semper venenatis, magna odio volutpat velit, at ullamcorper nulla lacus sed turpis.
+        Pellentesque vitae metus elit, nec tincidunt tellus. Integer sed nisl sem, ullamcorper
+        ornare lacus. Duis ac mauris sed massa congue volutpat. Donec sed erat sit amet turpis
+        viverra rhoncus sit amet nec magna. Donec lacinia ligula at libero volutpat volutpat nec nec
+        tortor.
+    </string>
+
+    <string name="action_share">Share</string>
+    <string name="action_reply">Reply</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_cv_list_add">+ 添加%s</string>
+    <string name="consult_service_category">类别：%s</string>
+    <string name="service_type">服务类型：</string>
+    <string name="update_time">更新时间：</string>
+    <string name="user_name">用户名</string>
+    <string name="work_ex">年工作经验</string>
+    <string name="money_negotiable">面议</string>
+    <string name="person_evaluation_err">尚未完善个人评价</string>
+    <string name="fresh_graduates">暂无工作经验</string>
+    <string name="info_secrecy">保密</string>
+    <string name="no_limit">不限</string>
+    <string name="education_no_limit">学历不限</string>
+    <string name="work_type_no_limit">工作类型不限</string>
+    <string name="invitation_message">来时请携带简历</string>
+    <string name="age">岁</string>
+    <string name="test_hint_type_major">本测试帮助测试者了解自身知识水平，有助于测试者充分了解自己，通过有针对性的自我调节，提高自身的知识储备，提高自身的专业知识水平。</string>
+    <string name="test_hint_type_ability">能力测验旨在针对个人工作的潜力进行测评,该项测试可以用来预测在一定环境下人是否有能力胜任工作。</string>
+    <string name="test_hint_type_profession">通过测试，它能帮助你更加清晰地分析自己的个性特性和自己最适合的工作环境，同时为自己提供相应的职业发展建议。让您更好地理解你自己、扩宽思路、规划职业生涯。</string>
+    <string name="question_num">题\u3000\u3000数：</string>
+    <string name="create_time">创建时间：</string>
+    <string name="caesura_sign">、</string>
+    <string name="institution_employment">就业情况</string>
+    <string name="institution_teacher">机构师资</string>
+    <string name="institution_enviroment">机构环境</string>
+    <string name="institution_course">机构课程</string>
+    <string name="institutionDetail_period">课时</string>
+    <string name="institution_detail_course_time">分钟</string>
+    <string name="institution_graduate">毕业院校：</string>
+    <string name="interview_time">应聘日期：</string>
+    <string name="interview_start_time">面试开始时间：</string>
+    <string name="interview_end_time">面试结束时间：</string>
+    <string name="not_input_reason">未填写拒绝理由</string>
+    <string name="company_recruit_applicant_num">应聘人数：</string>
+    <string name="nothing">无</string>
+    <string name="empty"> </string>
+    <string name="search_job_hint">请输入职位关键词，如：UI工程师</string>
+    <string name="search_cv_hint">请输入个人姓名，如：张三</string>
+    <string name="name">姓名：</string>
+    <string name="recruit_job_hint">您期望的职位是</string>
+    <string name="recruit_cv_hint">您期望的人才是</string>
+    <string name="publish_time">发布时间：</string>
+    <string name="not_read">未阅览</string>
+    <string name="read">已阅览</string>
+    <string name="cv_name">简历名称：</string>
+    <string name="people_str">人</string>
+    <string name="max_input_length">%1$d/%2$d</string>
+    <string name="none">暂无需求描述</string>
+    <string name="money_symbol">￥</string>
+    <string name="free_str">免费</string>
+    <string name="trailers_str">试听</string>
+    <string name="wait_pay">未支付</string>
+    <string name="pay_ok">已完成</string>
+    <string name="already_buy">已购买</string>
+    <string name="buy_now">购买课程</string>
+    <string name="pay_success">恭喜您支付成功</string>
+    <string name="pay_error">对不起支付失败</string>
+    <string name="charge_str">收费</string>
+    <string name="logo_message">请您登录后重试</string>
+    <string name="register_time">注册时间：</string>
+    <string name="last_active_time">最后活跃：</string>
+    <string name="email">邮箱：</string>
+    <string name="address">地址：</string>
+    <string name="audit_time">审核时间：</string>
+    <string name="auditor">审核人：</string>
+    <string name="apply">申请时间：</string>
+    <string name="lock_user">锁定用户</string>
+    <string name="last_login_time">最后登录时间:</string>
+    <string name="time">时间：</string>
+</resources>

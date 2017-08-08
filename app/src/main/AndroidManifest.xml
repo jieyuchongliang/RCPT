@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rcpt">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 乐视云的权限 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+
+    <!-- iBeancon功能所需权限 -->
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application
+        android:name=".base.RcptApl"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 个推 -->
+
+        <service
+            android:name=".getui_push.DemoPushService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice" />
+        <service android:name=".getui_push.DemoIntentService" />
+        <!-- 乐视视频 -->
+        <activity
+            android:name="com.lecloud.skin.activity.FeedBackActivity"
+            android:configChanges="keyboard|screenSize|orientation|layoutDirection"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.letv.ads.ui.LetvWebViewActivityProxy"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+
+        <service
+            android:name="com.letvcloud.cmf.MediaService"
+            android:process=":cmf" />
+
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.main.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustNothing" />
+        <!-- 支付宝H5页面 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity android:name=".ui.register.RegisterSelectActivity" />
+        <activity
+            android:name=".ui.register.person.RegisterPersonActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.register.group.RegisterGroupActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ui.forget_password.ForgetPasswordActivity" />
+        <activity android:name=".ui.home.activity.NewsActivity" />
+        <activity android:name=".ui.home.activity.ConsultServiceActivity" />
+        <activity android:name=".ui.home.activity.JieFaBaoActivity" />
+        <activity android:name=".ui.home.activity.BidInfoActivity" />
+        <activity
+            android:name=".ui.recruit.RecruitJobListActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".ui.home.activity.PolicyActivity" />
+        <activity android:name=".ui.home.activity.HomeInfoActivity" />
+        <activity android:name=".ui.enterprise.EnterpriseInfoActivity" />
+        <activity android:name=".ui.recruit.RecruitJobInfoActivity" />
+        <activity
+            android:name=".ui.me.PersonInfoActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing" />
+        <activity android:name=".ui.me.SendRecordActivity" />
+        <activity android:name=".ui.me.CVManagementActivity" />
+        <activity android:name=".ui.me.cv.CVInfoListActivity" />
+        <activity
+            android:name=".ui.me.cv.CreateCVInfoActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".ui.me.JobInviteActivity" />
+        <activity android:name=".ui.me.MessageActivity" />
+        <activity android:name=".ui.me.message.SystemMessageActivity" />
+        <activity android:name=".ui.me.message.InterviewMessageActivity" />
+        <activity android:name=".ui.me.FavoritesActivity" />
+        <activity android:name=".ui.register.group.ChooseIndustryActivity" />
+        <activity android:name=".ui.register.group.ChooseProvinceActivity" />
+        <activity android:name=".ui.recruit.SchoolInfoActivity" />
+        <activity android:name=".ui.recruit.SchoolListActivity" />
+        <activity android:name=".ui.recruit.JobGuideListActivity" />
+        <activity android:name=".ui.recruit.RecruitCVPreviewInfoActivity" />
+        <activity android:name=".ui.home.test.TestSelectActivity" />
+        <activity android:name=".ui.home.test.TestHintActivity" />
+        <activity android:name=".ui.home.test.TestMajorListActivity" />
+        <activity android:name=".ui.home.test.TestMajorQuestionInfoActivity" />
+        <activity android:name=".ui.home.test.TestProfessionQuestionInfoActivity" />
+        <activity android:name=".ui.home.test.TestAbilityQuestionInfoActivity" />
+        <activity
+            android:name=".ui.me.company.CompanyInfoActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing" />
+        <activity android:name=".ui.me.company.CompanyNewsListActivity" />
+        <activity android:name=".ui.home.activity.InstitutionActivity" />
+        <activity android:name=".ui.me.company.CompanyFavoriteActivity" />
+        <activity android:name=".ui.me.company.CompanyRecruitActivity" />
+        <activity android:name=".ui.recruit.SendJobInvitationActivity" />
+        <activity android:name=".ui.home.activity.InstitutionInfoActivity" />
+        <activity android:name=".ui.home.activity.BidPersonInfoActivity" />
+        <activity android:name=".ui.me.company.CompanyRecruitInfoActivity" />
+        <activity android:name=".ui.me.company.CompanyAccountManageActivity" />
+        <activity android:name=".ui.me.company.CompanyChangePasswordActivity" />
+        <activity android:name=".ui.home.activity.BidSendActivity" />
+        <activity android:name=".ui.register.RegisterClauseActivity" />
+        <activity android:name=".ui.me.company.CompanyRecruitAcceptNumListActivity" />
+        <activity
+            android:name=".ui.home.video.VideoListActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.home.video.VideoInfoActivity"
+            android:configChanges="keyboard|screenSize|orientation|layoutDirection"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.home.video.VideoPaymentActivity" />
+        <activity android:name=".ui.home.video.VideoTeacherInfoActivity" />
+        <activity android:name=".ui.me.video.MyOrderActivity" />
+        <activity android:name=".ui.me.video.MyCourseActivity" />
+        <activity android:name=".ui.pay.PayStatusActivity" />
+        <activity android:name=".ui.me.AboutMeActivity" />
+        <activity android:name=".ui.me.TestRecordActivity" />
+        <activity android:name=".ui.me.BidRecordActivity" />
+        <activity android:name=".ui.system.SystemMainActivity" />
+        <activity
+            android:name=".ui.system.PushManageActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ui.system.UserManageActivity" />
+        <activity android:name=".ui.system.SystemUserActivity" />
+        <activity android:name=".ui.me.message.MessageInfoActivity" />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <activity android:name=".ui.system.UserManageFilterActivity"></activity>
+    </application>
+
+</manifest>

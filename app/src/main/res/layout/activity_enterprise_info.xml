@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="enterpriseInfo"
+            type="com.rcpt.bean.EnterpriseInfoBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <include layout="@layout/app_layout_title" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!--轮播图-->
+                <com.bigkoo.convenientbanner.ConvenientBanner
+                    android:layout_margin="4dp"
+                    android:id="@+id/convenient_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    app:canLoop="true" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/windowBackground" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="公司名称："
+                        binding:text="@{enterpriseInfo.businessinfo.companyName}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="组织机构代码："
+                        binding:text="@{enterpriseInfo.businessinfo.organizeCode}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="公司地址："
+                        binding:text="@{enterpriseInfo.businessinfo.addressProvince+enterpriseInfo.businessinfo.addressCity+enterpriseInfo.businessinfo.addressDetail}" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/EnterpriseInfoTextStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="注册日期："
+                            binding:text="@{enterpriseInfo.businessinfo.registrationTime}" />
+
+
+                        <TextView
+                            style="@style/EnterpriseInfoTextStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="公司性质："
+                            binding:text="@{enterpriseInfo.businessinfo.enterpriseNature}" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="行业范围："
+                        binding:text="@{enterpriseInfo.businessinfo.industry}" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/EnterpriseInfoTextStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="注册资金："
+                            binding:text="@{enterpriseInfo.businessinfo.registeredCapital}" />
+
+                        <TextView
+                            style="@style/EnterpriseInfoTextStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="员工数："
+                            binding:text="@{enterpriseInfo.businessinfo.scale}" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/EnterpriseInfoTextStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="联系人："
+                            binding:text="@{enterpriseInfo.businessinfo.contact}" />
+
+                        <TextView
+                            style="@style/EnterpriseInfoTextStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="联系电话："
+                            binding:text="@{enterpriseInfo.businessinfo.contactTel}" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="官网："
+                        binding:toWebUrl="@{enterpriseInfo.businessinfo.website}" />
+
+                    <TextView
+                        style="@style/EnterpriseInfoTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E_mail："
+                        binding:text="@{enterpriseInfo.businessinfo.mail}" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/windowBackground" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="发展简介"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="暂无发展简介"
+                        android:visibility="@{TextUtils.isEmpty(enterpriseInfo.businessinfo.companyIntroduction)? View.VISIBLE : View.GONE}" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="6dp"
+                        android:background="@color/windowBackground"
+                        android:padding="6dp"
+                        android:text="@{enterpriseInfo.businessinfo.companyIntroduction}"
+                        android:visibility="@{TextUtils.isEmpty(enterpriseInfo.businessinfo.companyIntroduction)? View.GONE : View.VISIBLE}" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/windowBackground" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="公司招聘"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:text="暂无招聘信息"
+                        android:visibility="@{enterpriseInfo.jobList.isEmpty() ? View.VISIBLE : View.GONE}" />
+
+                    <com.rcpt.widget.NestRecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</layout>

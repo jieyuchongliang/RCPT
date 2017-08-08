@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="group_user_type">
+        <item>全部</item>
+        <item>企业会员 </item>
+        <item>培训机构</item>
+        <item>院校会员</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="group_user_type_code">
+        <item>全部,0</item>
+        <item>企业会员,2 </item>
+        <item>培训机构,3</item>
+        <item>院校会员,4</item>
+        <item>其他,5</item>
+    </string-array>
+    <string-array name="group_user_status">
+        <item>全部</item>
+        <item>审核中</item>
+        <item>审核通过</item>
+        <item>未通过</item>
+        <item>锁定</item>
+    </string-array>
+    <string-array name="group_user_status_code">
+        <item>全部,0</item>
+        <item>审核中,1</item>
+        <item>审核通过,2</item>
+        <item>未通过,3</item>
+        <item>锁定,4</item>
+    </string-array>
+    <string-array name="person_user_status">
+        <item>全部</item>
+        <item>被锁定</item>
+        <item>正常</item>
+    </string-array>
+    <string-array name="person_user_status_code">
+        <item>全部,0</item>
+        <item>被锁定,4</item>
+        <item>正常,2</item>
+    </string-array>
+</resources>

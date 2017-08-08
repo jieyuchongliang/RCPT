@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/company_menu_group_basic">
+        <item
+            android:id="@+id/company_menu_item_logo"
+            android:enabled="false"
+            android:title="公司Logo"
+            android:titleCondensed="comLogo" />
+        <item
+            android:id="@+id/company_menu_item_name"
+            android:enabled="true"
+            android:title="企业名称"
+            android:titleCondensed="comName" />
+        <item
+            android:id="@+id/company_menu_item_industry"
+            android:checkable="true"
+            android:enabled="false"
+            android:title="所属行业"
+            android:titleCondensed="industry" />
+        <item
+            android:id="@+id/company_menu_item_contact"
+            android:enabled="false"
+            android:title="联系人"
+            android:titleCondensed="contact" />
+        <item
+            android:id="@+id/company_menu_item_tel"
+            android:enabled="false"
+            android:title="联系电话"
+            android:titleCondensed="tel" />
+
+
+    </group>
+
+    <group android:id="@+id/company_menu_group_contact">
+
+        <item
+            android:id="@+id/company_menu_item_mail"
+            android:enabled="false"
+            android:title="公司邮箱"
+            android:titleCondensed="mail" />
+        <item
+            android:id="@+id/company_menu_item_website"
+            android:enabled="false"
+            android:title="公司网址"
+            android:titleCondensed="website" />
+        <item
+            android:id="@+id/company_menu_item_zip_code"
+            android:enabled="false"
+            android:title="邮编"
+            android:titleCondensed="zipCode" />
+
+        <item
+            android:id="@+id/company_menu_item_address"
+            android:checkable="true"
+            android:enabled="false"
+            android:title="公司地址"
+            android:titleCondensed="address" />
+        <item
+        android:id="@+id/company_menu_item_address_detail"
+        android:enabled="false"
+        android:title="详细地址"
+        android:titleCondensed="addressDetail" />
+        <item
+            android:id="@+id/company_menu_item_business_bureau"
+            android:checkable="true"
+            android:enabled="false"
+            android:titleCondensed="addressArea"
+            android:visible="false"
+            android:title="所属机关"/>
+        <item
+            android:id="@+id/company_menu_item_service_distribution"
+            android:enabled="false"
+            android:title="业务分布"
+            android:titleCondensed="serviceDistribution" />
+    </group>
+    <group android:id="@+id/company_menu_group_add">
+        <item
+            android:id="@+id/company_menu_item_is_quotedCompany"
+            android:checkable="true"
+            android:enabled="false"
+            android:title="是否上市"
+            android:titleCondensed="isQuotedCompany" />
+
+        <item
+            android:id="@+id/company_menu_item_registered_capital"
+            android:enabled="false"
+            android:title="注册资金"
+            android:titleCondensed="registeredCapital" />
+        <item
+            android:id="@+id/company_menu_item_scale"
+            android:enabled="false"
+            android:title="公司规模"
+            android:titleCondensed="scale" />
+
+    </group>
+
+    <group android:id="@+id/company_menu_group_add_two">
+        <item
+            android:id="@+id/company_menu_item_enterprise_nature"
+            android:checkable="true"
+            android:enabled="false"
+            android:title="公司性质"
+            android:titleCondensed="enterpriseNature" />
+        <item
+            android:id="@+id/company_menu_item_legal_representative"
+            android:enabled="false"
+            android:title="企业法人"
+            android:titleCondensed="legalRepresentative" />
+        <item
+            android:id="@+id/company_menu_item_register_time"
+            android:enabled="false"
+            android:title="注册时间"
+            android:titleCondensed="registTime" />
+
+        <item
+            android:id="@+id/company_menu_item_company_introduction"
+            android:enabled="false"
+            android:title="公司简介"
+            android:titleCondensed="companyIntroduction" />
+    </group>
+
+</menu>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.rcpt.bean.InstitutionDetailBean.CourselistBean" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="@dimen/institution_course_width"
+            android:layout_height="@dimen/institution_course_height"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop"
+            binding:imageUrl="@{bean.coursePath}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lineSpacingMultiplier="1.1"
+                android:lines="1"
+                android:maxLines="1"
+                android:textColor="@color/colorTextBlack"
+                android:textSize="14sp"
+                android:text="@{bean.courseName}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom|left"
+                android:textSize="14sp"
+                android:text="@{bean.courseTime+@string/institutionDetail_period+bean.courseTime+@string/institution_detail_course_time}"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

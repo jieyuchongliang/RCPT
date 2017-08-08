@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="testName"
+            type="String" />
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.TestQuestionInfoContract.Presenter" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{testName}"
+                android:textColor="@color/colorTextBlack"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_vector_alarm" />
+
+            <TextView
+                android:id="@+id/tv_down_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/white" />
+
+        <View style="@style/divider_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View style="@style/weight_view" />
+
+            <Button
+                android:id="@+id/btn_last"
+                style="@style/small_button"
+                android:background="@drawable/bg_green_btn"
+                android:onClick="@{()->presenter.onClickGoLast()}"
+                android:text="上一题"
+                android:textColor="@android:color/white" />
+
+            <View style="@style/weight_view" />
+
+            <Button
+                android:id="@+id/btn_next"
+                style="@style/small_button"
+                android:background="@drawable/bg_green_btn"
+                android:onClick="@{()->presenter.onClickGoNext()}"
+                android:text="下一题"
+                android:textColor="@android:color/white" />
+
+            <View style="@style/weight_view" />
+
+            <Button
+                style="@style/small_button"
+                android:background="@drawable/bg_orange_btn"
+                android:onClick="@{()->presenter.onClickHandExams()}"
+                android:text="交卷"
+                android:textColor="@android:color/white" />
+
+            <View style="@style/weight_view" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

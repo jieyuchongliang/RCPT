@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lvzp="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.LoginContract.Presenter" />
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/sl_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:src="@mipmap/ic_login_head" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="7dp"
+                    android:onClick="@{()->presenter.onClickClose()}"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_vector_clear"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="55dp"
+                android:divider="@drawable/divider_line"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:showDividers="middle">
+
+                <com.rcpt.widget.InputIconLayout
+                    android:id="@+id/input_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    lvzp:inputHint="帐号"
+                    lvzp:inputMaxLength="30"
+                    lvzp:leftIcon="@drawable/ic_vector_login_user_avatar" />
+
+                <com.rcpt.widget.InputIconLayout
+                    android:id="@+id/input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    lvzp:imeOptions="actionDone"
+                    lvzp:inputHint="密码"
+                    lvzp:inputMaxLength="20"
+                    lvzp:inputType="password"
+                    lvzp:leftIcon="@drawable/ic_vector_login_password" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <Button
+                style="@style/big_button"
+                android:background="@drawable/bg_blue_btn"
+                android:onClick="@{()->presenter.onClickLogin()}"
+                android:text="登录" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->presenter.onClickGoRegister()}"
+                    android:padding="10dp"
+                    android:text="注册帐号" />
+
+                <Space style="@style/weight_view" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->presenter.onClickForgetPassword()}"
+                    android:padding="10dp"
+                    android:text="忘记密码?" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

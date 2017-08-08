@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/me_menu_group_cv">
+        <item
+            android:id="@+id/me_menu_item_send_record"
+            android:icon="@drawable/ic_vector_me_send_record"
+            android:title="投递记录" />
+        <item
+            android:id="@+id/me_menu_item_job_invite"
+            android:icon="@drawable/ic_vector_me_job_invite"
+            android:title="职位邀请" />
+        <item
+            android:id="@+id/me_menu_item_cv_manage"
+            android:icon="@drawable/ic_vector_me_cv_manage"
+            android:title="简历管理" />
+    </group>
+    <group android:id="@+id/me_menu_group_course">
+        <item
+            android:id="@+id/me_menu_item_notify"
+            android:icon="@drawable/ic_vector_notify"
+            android:title="我的消息" />
+        <item
+            android:id="@+id/me_menu_item_test_record"
+            android:icon="@drawable/ic_vector_test_record"
+            android:title="测评管理" />
+        <item
+            android:id="@+id/me_menu_item_order"
+            android:icon="@drawable/ic_vector_me_order"
+            android:title="我的订单" />
+    </group>
+    <group android:id="@+id/me_menu_group_blend">
+        <item
+            android:id="@+id/me_menu_item_message"
+            android:icon="@drawable/ic_vector_me_message"
+            android:title="面试通知" />
+        <item
+            android:id="@+id/me_menu_item_favorites"
+            android:icon="@drawable/ic_vector_me_collect"
+            android:title="收藏夹" />
+    </group>
+    <group android:id="@+id/me_menu_group_exit">
+        <item
+            android:id="@+id/me_menu_item_user_info"
+            android:icon="@drawable/ic_vector_me_user_info"
+            android:title="帐号信息" />
+        <item
+            android:id="@+id/me_menu_item_exit"
+            android:icon="@drawable/ic_vector_me_exit"
+            android:title="退出" />
+    </group>
+</menu>

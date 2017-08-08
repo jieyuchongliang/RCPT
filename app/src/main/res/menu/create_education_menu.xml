@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><!--创建教育背景的菜单-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/cv_menu_item_education_school_name"
+        android:enabled="false"
+        android:title="学校名称"
+        android:titleCondensed="schName" />
+    <item
+        android:id="@+id/cv_menu_item_education_diploma"
+        android:enabled="false"
+        android:checkable="true"
+        android:title="学历/学位"
+        android:titleCondensed="education" />
+    <item
+        android:id="@+id/cv_menu_item_education_enroll_time"
+        android:enabled="false"
+        android:title="入学时间"
+        android:titleCondensed="startT" />
+    <item
+        android:id="@+id/cv_menu_item_education_graduation_time"
+        android:enabled="false"
+        android:title="毕业时间"
+        android:titleCondensed="endT" />
+    <item
+        android:id="@+id/cv_menu_item_education_major_name"
+        android:enabled="false"
+        android:title="专业名称"
+        android:titleCondensed="specialty" />
+    <item
+        android:id="@+id/cv_menu_item_education_overseas_ex"
+        android:enabled="false"
+        android:checkable="true"
+        android:title="海外经历"
+        android:titleCondensed="osStudy" />
+</menu>

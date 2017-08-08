@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="newsFollowBean"
+            type="com.rcpt.bean.InstituteBean.InstitutionListBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_image_height"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            binding:imageUrl="@{newsFollowBean.logo}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lineSpacingMultiplier="1.1"
+                android:lines="2"
+                android:maxLines="2"
+                android:textColor="@color/colorTextBlack"
+                android:text="@{newsFollowBean.institutionName}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="@{newsFollowBean.contact != null ? @string/industry_contact+newsFollowBean.contact : @string/industry_contact}"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

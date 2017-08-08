@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lvzp="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.presenter.ForgetPasswordEmilPresenter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_num_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <com.rcpt.widget.NumProgressLayout
+                android:id="@+id/num_progress_one"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                lvzp:bottomText="填写账户信息"
+                lvzp:imageSize="30dp"
+                lvzp:linesColor="@color/colorLightGray"
+                lvzp:numText="1"
+                lvzp:linesHeight="4dp"
+                lvzp:showRightLines="true" />
+
+            <com.rcpt.widget.NumProgressLayout
+                android:id="@+id/num_progress_two"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                lvzp:bottomText="输入验证码"
+                lvzp:bottomTextColor="@color/colorGray"
+                lvzp:imageSize="30dp"
+                lvzp:linesColor="@color/colorLightGray"
+                lvzp:numText="2"
+                lvzp:linesHeight="4dp"
+                lvzp:showLeftLines="true"
+                lvzp:showRightLines="true" />
+
+            <com.rcpt.widget.NumProgressLayout
+                android:id="@+id/num_progress_three"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                lvzp:bottomText="重置密码"
+                lvzp:bottomTextColor="@color/colorGray"
+                lvzp:imageSize="30dp"
+                lvzp:linesHeight="4dp"
+                lvzp:linesColor="@color/colorLightGray"
+                lvzp:numText="3"
+                lvzp:showLeftLines="true" />
+
+        </LinearLayout>
+
+        <View style="@style/divider_line_light" />
+        <!--最后一步保存密码-->
+        <LinearLayout
+            android:id="@+id/ll_save_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorLightGray"
+            android:divider="@drawable/divider_line"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_save_new_password_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/windowBackground"
+                android:gravity="center"
+                android:padding="25dp"
+                android:text="@string/forget_password_save_new_password_hint" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/colorLightGray" />
+
+            <com.rcpt.widget.InputIconLayout
+                android:id="@+id/input_new_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                lvzp:inputHint="6-16位字母加数字的组合密码"
+                lvzp:inputType="password"
+                lvzp:inputMaxLength="20"
+                lvzp:leftIcon="@drawable/ic_vector_login_password" />
+
+
+            <Button
+                android:id="@+id/btn_save_new_password"
+                style="@style/big_button"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/bg_blue_btn"
+                android:onClick="@{()->presenter.onClickSaveNewPassword()}"
+                android:text="保存新密码" />
+        </LinearLayout>
+        <!--第二步，输入验证码-->
+        <LinearLayout
+            android:id="@+id/ll_send_verify"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorLightGray"
+            android:divider="@drawable/divider_line"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_send_verify_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/windowBackground"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.5"
+                android:padding="25dp"
+                android:text="@string/forget_password_send_verify_emil_hint" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/colorLightGray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/windowBackground"
+                android:orientation="horizontal">
+
+                <com.rcpt.widget.InputIconLayout
+                    android:id="@+id/input_verify"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    lvzp:inputHint="请输入验证码"
+                    lvzp:inputMaxLength="50"
+                    lvzp:leftIcon="@drawable/ic_vector_register_verify" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="#888" />
+
+                <TextView
+                    android:id="@+id/tv_get_verify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:onClick="@{()->presenter.onClickGetVerify()}"
+                    android:text="获取验证码" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_verify_next"
+                style="@style/big_button"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/bg_blue_btn"
+                android:onClick="@{()->presenter.onClickSendVerifyNext()}"
+                android:text="下一步" />
+
+
+        </LinearLayout>
+        <!--第一步，输入邮箱号的界面-->
+        <LinearLayout
+            android:id="@+id/ll_input_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorLightGray"
+            android:divider="@drawable/divider_line"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/windowBackground"
+                android:gravity="center"
+                android:padding="25dp"
+                android:singleLine="true"
+                android:text="请填写您要找回的密码的邮箱号"
+                android:textColor="@color/colorTextBlack"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/colorLightGray" />
+
+            <com.rcpt.widget.InputIconLayout
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                lvzp:inputHint="请输入您的邮箱地址"
+                lvzp:inputMaxLength="50"
+                lvzp:leftIcon="@drawable/ic_vector_register_emil" />
+
+
+            <Button
+                android:id="@+id/btn_input_email_next"
+                style="@style/big_button"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/bg_blue_btn"
+                android:onClick="@{()->presenter.onClickInputEmailNext()}"
+                android:text="下一步" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

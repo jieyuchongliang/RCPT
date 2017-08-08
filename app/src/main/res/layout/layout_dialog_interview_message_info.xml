@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.contract.InterviewMessageContract.Presenter" />
+
+        <variable
+            name="bean"
+            type="com.rcpt.bean.InterviewMessageListBean.GetInterviewBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="面试邀请"
+                android:textColor="@color/colorTextBlack"
+                android:textSize="18sp" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="@{()->presenter.onDialogClickClose()}"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/ic_vector_close" />
+
+        </LinearLayout>
+
+        <View style="@style/divider_line" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="85dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:scaleType="centerCrop"
+                android:src="@{bean.status == 2 ? @drawable/ic_vector_disagree:@drawable/ic_vector_agree}"
+                android:visibility="@{bean.status == 0? View.GONE:View.VISIBLE}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="@{@string/interview_start_time+bean.start_time}" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="@{@string/interview_end_time+bean.end_time}" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="描述：" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:lines="3"
+                    android:maxLines="3"
+                    android:text="@{bean.description}" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_disagree_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:visibility="@{bean.status == 2 ? View.VISIBLE:View.GONE}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="拒绝理由：" />
+
+            <EditText
+                android:id="@+id/edit_disagree_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_gray_round_corners"
+                android:enabled="@{bean.status == 0}"
+                android:gravity="left"
+                android:lines="3"
+                android:maxLines="3"
+                android:padding="10dp"
+                android:text="@{bean.reason??@string/not_input_reason}"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_setting_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:visibility="@{bean.status != 0?View.GONE:View.VISIBLE}">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_green_btn"
+                android:onClick="@{()->presenter.onDialogClickAgree()}"
+                android:paddingLeft="45dp"
+                android:paddingRight="45dp"
+                android:text="同意"
+                android:textColor="@android:color/white" />
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="1dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_orange_btn"
+                android:onClick="@{()->presenter.onDialogClickDisagree()}"
+                android:paddingLeft="45dp"
+                android:paddingRight="45dp"
+                android:text="拒绝"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_blue_btn"
+            android:onClick="@{()->presenter.onDialogClickConfirm()}"
+            android:paddingLeft="45dp"
+            android:paddingRight="45dp"
+            android:text="确认"
+            android:textColor="@android:color/white"
+            android:visibility="gone" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/system_main_push"
+        android:icon="@drawable/ic_vector_system_push"
+        android:title="信息推送" />
+    <item
+        android:id="@+id/system_main_user"
+        android:icon="@drawable/ic_vector_system_user"
+        android:title="会员管理" />
+    <item
+        android:id="@+id/system_main_manage"
+        android:icon="@drawable/ic_vector_system_manage"
+        android:title="系统用户" />
+    <item
+        android:id="@+id/system_main_exit"
+        android:icon="@drawable/ic_vector_system_exit"
+        android:title="退\u3000出" />
+</menu>

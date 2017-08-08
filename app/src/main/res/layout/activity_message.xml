@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.presenter.MessagePresenter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/app_layout_title" />
+        <!--由于目前的菜单列表就两条，如果写一个列表不太方便，将来数据多了以后，还是比较推荐使用列表-->
+        <RelativeLayout
+            android:id="@+id/rl_system"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.onClickGoSystemMessage()}"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/iv_system_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_orange_round"
+                android:padding="12dp"
+                android:src="@drawable/ic_vector_me_message_white" />
+
+            <TextView
+                android:id="@+id/tv_system_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@id/iv_system_icon"
+                android:text="系统消息"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/tv_system_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/iv_system_icon"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/iv_system_icon"
+                android:layout_toRightOf="@id/iv_system_icon"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="介绍内容"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_system_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="10月29日"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_system_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/tv_system_info"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_red_round"
+                android:gravity="center"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:text="99"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View
+            style="@style/divider_line"
+            android:layout_marginLeft="65dp"
+            android:layout_marginStart="65dp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_interview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.onClickGoInterviewMessage()}"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/iv_interview_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_green_round"
+                android:padding="12dp"
+                android:src="@drawable/ic_vector_me_email" />
+
+            <TextView
+                android:id="@+id/tv_interview_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@id/iv_interview_icon"
+                android:text="面试邀请"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/tv_interview_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/iv_interview_icon"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/iv_interview_icon"
+                android:layout_toRightOf="@id/iv_interview_icon"
+                android:ellipsize="end"
+                android:maxLines="1"
+
+                android:text="富士软件有限公司有一份面试邀请"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_interview_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="3月6日"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_interview_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/tv_interview_info"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_red_round"
+                android:gravity="center"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:text="11"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View
+            style="@style/divider_line"
+            android:layout_marginLeft="65dp"
+            android:layout_marginStart="65dp" />
+    </LinearLayout>
+
+</layout>

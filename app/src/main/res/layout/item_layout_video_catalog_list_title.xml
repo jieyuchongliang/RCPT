@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <data>
+        <variable
+            name="titleBean"
+            type="com.rcpt.bean.VideoInfoCatalogBean"/>
+        <variable
+            name="isExpand"
+            type="Boolean"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="#f9f9f9"
+        android:padding="7dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:text="@{titleBean.titleName}"
+            android:textColor="#666" />
+
+
+        <ImageView
+            android:id="@+id/iv_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:rotation="@{isExpand ? 180:0}"
+            android:src="@drawable/ic_vector_up" />
+
+    </LinearLayout>
+</layout>

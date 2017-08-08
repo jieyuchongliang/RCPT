@@ -1,0 +1,131 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lvzp="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.rcpt.mvp.presenter.PhoneRegisterPresenter" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/sl_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/register_layout_margin"
+                android:layout_marginRight="@dimen/register_layout_margin"
+                android:layout_marginTop="@dimen/register_layout_margin"
+                android:divider="@drawable/divider_line"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <com.rcpt.widget.InputIconLayout
+                    android:id="@+id/input_phone_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    lvzp:inputHint="请输入您的手机号"
+                    lvzp:inputMaxLength="20"
+                    lvzp:inputType="num"
+                    lvzp:leftIcon="@drawable/ic_vector_register_phone" />
+
+                <com.rcpt.widget.InputIconLayout
+                    android:id="@+id/input_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    lvzp:inputHint="请输入用户名"
+                    lvzp:inputMaxLength="30"
+                    lvzp:leftIcon="@drawable/ic_vector_login_user_avatar" />
+
+                <com.rcpt.widget.InputIconLayout
+                    android:id="@+id/input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    lvzp:inputHint="密码为两种以上字母数字特殊符号组合"
+                    lvzp:inputType="password"
+                    lvzp:inputMaxLength="20"
+                    lvzp:leftIcon="@drawable/ic_vector_login_password" />
+
+                <com.rcpt.widget.InputIconLayout
+                    android:id="@+id/input_r_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    lvzp:inputHint="请确认密码"
+                    lvzp:inputType="password"
+                    lvzp:inputMaxLength="20"
+                    lvzp:leftIcon="@drawable/ic_vector_login_password" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.rcpt.widget.InputIconLayout
+                        android:id="@+id/input_verify"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        lvzp:inputHint="请输入验证码"
+                        lvzp:inputMaxLength="50"
+                        lvzp:leftIcon="@drawable/ic_vector_register_verify" />
+
+                    <View
+                        android:layout_width="1px"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        android:background="#888" />
+
+                    <TextView
+                        android:id="@+id/tv_get_verify"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:onClick="@{()->presenter.onClickGetVerify()}"
+                        android:text="获取验证码" />
+                </LinearLayout>
+
+
+                <Button
+                    style="@style/big_button"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/bg_blue_btn"
+                    android:onClick="@{()->presenter.onClickSubmit()}"
+                    android:text="注册" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="注册表示你同意"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->presenter.onClickGoRegisterClause()}"
+                    android:padding="15dp"
+                    android:text="注册条款"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>
